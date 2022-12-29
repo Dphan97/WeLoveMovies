@@ -1,15 +1,11 @@
+const asyncErrorBoundary = require("../errors/asyncErrorBoundary");
 const theatersService = require("./theaters.service");
 
-async function theatersMovies (req, res, next) {
-    try {
-        const data = await theatersService.listTheaters();
-        res.json({ data });
-    }
-    catch(error) {
-        next(error);
-    }
+async function list(req, res, next) {
+    const data = await theatersService.list();
+    res.json({ data });
 }
 
 module.exports = {
-    theatersMovies,
+    list,
 }
