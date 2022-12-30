@@ -2,7 +2,7 @@ const knex = require("../db/connection");
 const mapProperties = require("../utils/map-properties");
 
 async function list(isShowing) {
-  if (isShowing){ //this does not seem right, I feel like isShowing === true would be better. Get help on this later
+  if (isShowing){ 
     return knex("movies")
     .join("movies_theaters", "movies.movie_id", "movies_theaters.movie_id")
     .distinct("movies.*")
